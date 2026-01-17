@@ -33,12 +33,15 @@ vim.opt.showmatch = true
 vim.opt.matchtime = 2
 vim.opt.completeopt = "menuone,noinsert,noselect"
 
--- Command line completeion
+-- Command line completion
 vim.opt.wildmenu = true
 vim.opt.wildmode = "longest:full,full"
 
 -- Better diff options
 vim.opt.diffopt:append("linematch:60")
+
+-- Autocomplete
+vim.opt.completeopt = { "menuone", "noselect", "popup" }
 
 -- Behavior settings
 vim.opt.path:append("**")
@@ -46,6 +49,18 @@ vim.opt.clipboard:append("unnamedplus")
 vim.opt.modifiable = true
 vim.opt.encoding = "UTF-8"
 
+
+
+-- ============================================================================
+-- LSP CONFIG
+-- ============================================================================
+vim.lsp.enable("harper_ls")
+
+
+
+-- ============================================================================
+-- KEY CONFIG
+-- ============================================================================
 -- Leader key
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -56,7 +71,7 @@ vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to bottom window" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to top window" })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
 
--- Splitting behaviour
+-- Splitting behavior
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
@@ -187,3 +202,4 @@ vim.keymap.set("t", "<Esc>", function()
     terminal_state.is_open = false
   end
 end, { noremap = true, silent = true, desc = "Close floating terminal from terminal mode" })
+
